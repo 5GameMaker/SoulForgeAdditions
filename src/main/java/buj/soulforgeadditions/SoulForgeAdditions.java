@@ -18,8 +18,5 @@ public class SoulForgeAdditions implements ClientModInitializer {
             }
             else HUDOverlayHandler.INSTANCE.FOOD_BAR_HEIGHT += 22;
         }
-
-        if (FabricLoader.getInstance().isModLoaded("rei")) {
-        }
     }
 }

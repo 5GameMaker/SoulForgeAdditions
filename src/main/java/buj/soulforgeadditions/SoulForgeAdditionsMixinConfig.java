@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 public class SoulForgeAdditionsMixinConfig implements IMixinConfigPlugin {
-    private final Supplier<Boolean> TRUE = () -> true;
     private final HashMap<String, Supplier<Boolean>> CONDITIONS = new HashMap<>();
 
     public SoulForgeAdditionsMixinConfig() {

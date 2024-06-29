@@ -16,11 +16,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerSoulComponent.class)
 public abstract class PlayerSoulComponentMixin implements SoulComponent {
-    @Shadow @Final private PlayerEntity player;
+    @Shadow(remap = false) @Final private PlayerEntity player;
 
-    @Shadow public abstract int getAbilityRow();
+    @Shadow(remap = false) public abstract int getAbilityRow();
 
-    @Shadow public abstract int getAbilitySlot();
+    @Shadow(remap = false) public abstract int getAbilitySlot();
 
     @Inject(method = "setAbilitySlot(I)V", at = @At("TAIL"), remap = false)
     public void setAbilitySlot(int i, CallbackInfo ci) {

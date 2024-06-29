@@ -1,10 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "buj.soulforgeadditions.soulforgeadditions.mixin",
+  "package": "buj.soulforgeadditions.mixin",
   "compatibilityLevel": "JAVA_17",
   "plugin": "buj.soulforgeadditions.SoulForgeAdditionsMixinConfig",
   "client": [
+    "SoulScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

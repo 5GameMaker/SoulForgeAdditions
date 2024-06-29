@@ -29,6 +29,13 @@ repositories {
         }
     }
 
+    maven {
+        url "https://maven.jamieswhiteshirt.com/libs-release"
+        content {
+            includeGroup "com.jamieswhiteshirt"
+        }
+    }
+
     maven { url "https://maven.shedaniel.me" }
 }
 
@@ -46,6 +53,8 @@ dependencies {
     modImplementation "maven.modrinth:soulforge:${project.soulforge_version}"
     modImplementation "maven.modrinth:appleskin:${project.appleskin_version}"
     modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+
+    include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.rea_version}")
 }
 
 processResources {
@@ -60,7 +69,8 @@ processResources {
                 "loader_version": project.loader_version,
                 "soulforge_version": project.soulforge_version,
                 "appleskin_version": project.appleskin_version,
-                "rei_version": project.rei_version
+                "rei_version": project.rei_version,
+                "rea_version": project.rea_version
     }
 }
 

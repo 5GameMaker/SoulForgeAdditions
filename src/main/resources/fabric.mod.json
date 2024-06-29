@@ -26,7 +26,9 @@
         "fabricloader": ">=${loader_version}",
         "fabric": "*",
         "minecraft": "${minecraft_version}",
-        "soulforge": "${soulforge_version}"
+        "soulforge": "${soulforge_version}",
+        "reach-entity-attributes": ">=${rea_version}",
+        "cardinal-components": ">=${cca_version}"
     },
     "suggests": {
         "appleskin": ">=${appleskin_version}",

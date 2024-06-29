@@ -5,7 +5,9 @@
   "compatibilityLevel": "JAVA_17",
   "plugin": "buj.soulforgeadditions.SoulForgeAdditionsMixinConfig",
   "client": [
-    "SoulScreenMixin"
+    "SoulScreenMixin",
+    "PlayerSoulComponentMixin",
+    "InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

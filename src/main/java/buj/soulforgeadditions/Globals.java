@@ -12,4 +12,6 @@ public class Globals {
     public static @Nullable Text NEW_HOTBAR_DISPLAY_TEXT = null;
 
     public static boolean APPLESKIN_NOT_APPLIED = false;
+
+    public static float MAGIC_HUD_OPACITY_ANIM = 0;
 }

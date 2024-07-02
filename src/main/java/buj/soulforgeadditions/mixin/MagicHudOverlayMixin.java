@@ -1,6 +1,7 @@
 package buj.soulforgeadditions.mixin;
 
 import buj.soulforgeadditions.Globals;
+import buj.soulforgeadditions.SoulForgeAdditions;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.pulsar.soulforge.SoulForge;
 import com.pulsar.soulforge.client.ui.MagicHudOverlay;
@@ -22,20 +23,23 @@ import static org.lwjgl.opengl.GL20.*;
 public class MagicHudOverlayMixin {
     @Inject(method = "onHudRender", at = @At("HEAD"))
     void onHudRender(DrawContext context, float tickDelta, CallbackInfo ci) {
-        SoulComponent soul = SoulForge.getPlayerSoul(MinecraftClient.getInstance().player);
-        if (soul != null) {
-            if (soul.magicModeActive()) {
-                Globals.MAGIC_HUD_OPACITY_ANIM -= tickDelta / 10;
-                if (Globals.MAGIC_HUD_OPACITY_ANIM < 0) Globals.MAGIC_HUD_OPACITY_ANIM = 0;
+        if (SoulForgeAdditions.getConfig().magicBarFade) {
+            SoulComponent soul = SoulForge.getPlayerSoul(MinecraftClient.getInstance().player);
+            if (soul != null) {
+                if (soul.magicModeActive()) {
+                    Globals.MAGIC_HUD_OPACITY_ANIM -= tickDelta / 10;
+                    if (Globals.MAGIC_HUD_OPACITY_ANIM < 0) Globals.MAGIC_HUD_OPACITY_ANIM = 0;
+                }
+                else if (soul.getMagic() < 99.99f) {
+                    Globals.MAGIC_HUD_OPACITY_ANIM += tickDelta / 40;
+                    if (Globals.MAGIC_HUD_OPACITY_ANIM > 1.5f) Globals.MAGIC_HUD_OPACITY_ANIM = 1.5f;
+                }
+                else {
+                    Globals.MAGIC_HUD_OPACITY_ANIM += tickDelta / 40;
+                    if (Globals.MAGIC_HUD_OPACITY_ANIM > 2) Globals.MAGIC_HUD_OPACITY_ANIM = 2;
+                }
             }
-            else if (soul.getMagic() < 99.99f) {
-                Globals.MAGIC_HUD_OPACITY_ANIM += tickDelta / 40;
-                if (Globals.MAGIC_HUD_OPACITY_ANIM > 1.5f) Globals.MAGIC_HUD_OPACITY_ANIM = 1.5f;
-            }
-            else {
-                Globals.MAGIC_HUD_OPACITY_ANIM += tickDelta / 40;
-                if (Globals.MAGIC_HUD_OPACITY_ANIM > 2) Globals.MAGIC_HUD_OPACITY_ANIM = 2;
-            }
+            else Globals.MAGIC_HUD_OPACITY_ANIM = 0;
         }
         else Globals.MAGIC_HUD_OPACITY_ANIM = 0;
     }

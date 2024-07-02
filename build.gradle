@@ -41,6 +41,11 @@ repositories {
         url = 'https://maven.ladysnake.org/releases'
     }
 
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
+
     maven { url "https://maven.shedaniel.me" }
 }
 
@@ -59,6 +64,11 @@ dependencies {
     modImplementation "maven.modrinth:appleskin:${project.appleskin_version}"
     modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
 
     include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.rea_version}")
     include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
@@ -68,6 +78,13 @@ processResources {
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
     inputs.property "loader_version", project.loader_version
+    inputs.property "soulforge_version", project.soulforge_version
+    inputs.property "appleskin_version", project.appleskin_version
+    inputs.property "rei_version", project.rei_version
+    inputs.property "rea_version", project.rea_version
+    inputs.property "cca_version", project.cca_version
+    inputs.property "cloth_version", project.cloth_version
+
     filteringCharset "UTF-8"
 
     filesMatching("fabric.mod.json") {
@@ -78,7 +95,9 @@ processResources {
                 "appleskin_version": project.appleskin_version,
                 "rei_version": project.rei_version,
                 "rea_version": project.rea_version,
-                "cca_version": project.cca_version
+                "modmenu_version": project.modmenu_version,
+                "cca_version": project.cca_version,
+                "cloth_version": project.cloth_version
     }
 }
 

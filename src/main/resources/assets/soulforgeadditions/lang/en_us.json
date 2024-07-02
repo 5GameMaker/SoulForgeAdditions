@@ -1,0 +1,8 @@
+{
+    "modmenu.nameTranslation.soulforgeadditions": "SoulForge Additions",
+    "modmenu.summaryTranslation.soulforgeadditions": "Improvements and fixes for SoulForge",
+    "modmenu.descriptionTranslation.soulforgeadditions": "Improvements and fixes for SoulForge",
+
+    "text.autoconfig.soulforgeadditions.option.magicBarFade": "Fade magic bar when unused",
+    "text.autoconfig.soulforgeadditions.title": "SoulForge Additions config"
+}

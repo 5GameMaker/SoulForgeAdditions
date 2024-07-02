@@ -20,7 +20,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import squeek.appleskin.client.HUDOverlayHandler;
 
 import java.util.Objects;
-import java.util.logging.Logger;
 
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin {

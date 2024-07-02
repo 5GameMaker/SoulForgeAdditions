@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import squeek.appleskin.client.HUDOverlayHandler;
 
 import java.util.Objects;
 
@@ -78,11 +77,6 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "tick()V", at = @At("TAIL"))
     public void tick(CallbackInfo ci) {
-        if (Globals.APPLESKIN_NOT_APPLIED && HUDOverlayHandler.INSTANCE != null) {
-            HUDOverlayHandler.INSTANCE.FOOD_BAR_HEIGHT += 22;
-            Globals.APPLESKIN_NOT_APPLIED = false;
-        }
-
         final boolean soulForgeHudActive;
         @Nullable SoulComponent soul = SoulForge.getPlayerSoul(client.player);
         if (soul == null) soulForgeHudActive = false;

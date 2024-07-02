@@ -10,7 +10,7 @@
     "ability.bravery_boost.summary": "Boost your stats at the cost of all mana",
     "ability.shatter.summary": "Deal large damage to your surroundings. You were warned",
     "ability.valiant_heart.summary": "Gain a double magic boost",
-    "ability.resplendent_pheonix.summary": "Summon a tornado",
+    "ability.resplendent_phoenix.summary": "Summon a tornado",
 
     "ability.justice_pellets.summary": "Friendliness pellets!",
     "ability.shotgun_fist.summary": "Ye m8 it hits hard",
@@ -23,6 +23,7 @@
     "ability.launch.summary": "Ain't no time to yap!",
     "ability.fragmentation_grenade.summary": "Catch!",
     "ability.orbital_strike.summary": "Watch out!",
+    "ability.bfrcmg.summary": "Quake pro!",
 
     "ability.ally_heal.summary": "Heal your target",
     "ability.kindness_shield.summary": "Summon an unbreakable shield",

@@ -31,7 +31,6 @@
         "minecraft": "${minecraft_version}",
         "soulforge": "${soulforge_version}",
         "reach-entity-attributes": ">=${rea_version}",
-        "appleskin": "${appleskin_version}",
         "cardinal-components": ">=${cca_version}"
     },
     "suggests": {

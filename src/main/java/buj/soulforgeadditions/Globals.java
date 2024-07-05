@@ -1,5 +1,6 @@
 package buj.soulforgeadditions;
 
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
@@ -11,7 +12,9 @@ public class Globals {
 
     public static @Nullable Text NEW_HOTBAR_DISPLAY_TEXT = null;
 
-    public static boolean APPLESKIN_NOT_APPLIED = false;
-
     public static float MAGIC_HUD_OPACITY_ANIM = 0;
+
+    public static @Nullable Screen PREVIOUS_SCREEN = null;
+
+    public static boolean DEFERRED_CHANGE_SLOT = false;
 }

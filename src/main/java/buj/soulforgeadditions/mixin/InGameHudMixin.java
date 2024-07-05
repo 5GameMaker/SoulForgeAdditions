@@ -1,9 +1,12 @@
 package buj.soulforgeadditions.mixin;
 
+import buj.soulforgeadditions.AbilitiesExt;
 import buj.soulforgeadditions.Globals;
 import com.pulsar.soulforge.SoulForge;
 import com.pulsar.soulforge.ability.AbilityBase;
+import com.pulsar.soulforge.components.AbilityLayout;
 import com.pulsar.soulforge.components.SoulComponent;
+import com.pulsar.soulforge.trait.TraitBase;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
@@ -18,9 +21,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Arrays;
 import java.util.Objects;
 
-@Mixin(InGameHud.class)
+@Mixin(value = InGameHud.class, priority = 999)
 public abstract class InGameHudMixin {
     @Shadow @Final private MinecraftClient client;
     @Shadow private ItemStack currentStack;
@@ -120,6 +124,46 @@ public abstract class InGameHudMixin {
             }
             heldItemText = mutableText;
             fadeTracker = this.heldItemTooltipFade;
+        }
+    }
+
+    @Inject(method = "renderHotbar", at = @At("HEAD"))
+    private void renderAbilityOverlay(float tickDelta, DrawContext context, CallbackInfo ci) {
+        SoulComponent playerSoul = SoulForge.getPlayerSoul(client.player);
+        if (playerSoul != null) {
+            AbilityLayout.AbilityRow row = playerSoul.getLayoutRow(playerSoul.getAbilityRow());
+            int slot = playerSoul.getAbilitySlot();
+            for (int i = 0; i < 9; i++) {
+                AbilityBase ability = row.abilities.get(i);
+                if (ability != null && playerSoul.getActiveAbilities().stream().anyMatch(x -> x.getID().equals(ability.getID()))) {
+                    int f2011 = this.scaledWidth / 2;
+
+                    int n = f2011 - 90 + i * 20 + 2 - 2;
+                    int o = scaledHeight - 16 - 3 - 22 - 2;
+
+                    int[] colors = Arrays.stream(AbilitiesExt.getTraitsOf(ability))
+                            .mapToInt(TraitBase::getColor)
+                            .toArray();
+
+                    final int shiftPerColor = 20 / Math.max(colors.length, 1);
+                    int shift = 0;
+
+                    int n2 = n + 20;
+
+                    if (i + 1 == slot) {
+                        n2 -= 2;
+                    }
+
+                    if (i - 1 == slot) {
+                        n += 1;
+                    }
+
+                    for (int color : colors) {
+                        context.fill(n, o + shift, n2, o + 20, color | 0xff000000);
+                        shift += shiftPerColor;
+                    }
+                }
+            }
         }
     }
 }

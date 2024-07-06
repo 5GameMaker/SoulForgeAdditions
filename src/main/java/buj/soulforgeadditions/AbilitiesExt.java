@@ -131,7 +131,7 @@ public class AbilitiesExt {
         if (traits.length > 0) return traits;
 
         traits = DUALS.get(ability.getID());
-        if (traits.length > 0) return traits;
+        if (traits != null && traits.length > 0) return traits;
 
         if (!WARNED_ABBS.contains(ability.getID())) {
             SoulForgeAdditions.LOG.warn("No traits defined for trait {}", ability.getID().toString());

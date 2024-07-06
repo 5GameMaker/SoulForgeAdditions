@@ -22,11 +22,11 @@ import java.util.List;
 
 @Mixin(SoulScreen.class)
 public abstract class SoulScreenMixin extends Screen {
-    @Shadow public int x;
+    @Shadow(remap = false) public int x;
 
-    @Shadow public int y;
+    @Shadow(remap = false) public int y;
 
-    @Shadow public abstract void updateWidgets();
+    @Shadow(remap = false) public abstract void updateWidgets();
 
     protected SoulScreenMixin(Text title) {
         super(title);

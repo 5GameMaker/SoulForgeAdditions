@@ -24,11 +24,11 @@ public class PlayerInventoryMixin {
     @Dynamic
     @Shadow
     @Final
-    public PlayerEntity field_7546;
+    public PlayerEntity player;
 
     @Inject(method = "scrollInHotbar", at = @At("HEAD"))
     protected void handleHotbarScroll(double scrollAmount, CallbackInfo ci) {
-        PlayerEntity player = this.field_7546;
+        PlayerEntity player = this.player;
         if (player.getWorld().isClient && SoulForgeAdditions.getConfig().scrollChangesRows) {
             SoulComponent playerSoul = SoulForge.getPlayerSoul(player);
             int direction = (int) Math.signum(scrollAmount);
@@ -36,10 +36,8 @@ public class PlayerInventoryMixin {
             if (playerSoul != null && playerSoul.magicModeActive()) {
                 if (playerSoul.getAbilitySlot() - direction < 0) {
                     playerSoul.setAbilityRow((playerSoul.getAbilityRow() + 3) % 4);
-                    ClientPlayNetworking.send(SoulForgeNetworking.SWITCH_MODE, PacketByteBufs.create().writeVarInt(-1));
                 } else if (playerSoul.getAbilitySlot() - direction > 8) {
                     playerSoul.setAbilityRow((playerSoul.getAbilityRow() + 1) % 4);
-                    ClientPlayNetworking.send(SoulForgeNetworking.SWITCH_MODE, PacketByteBufs.create().writeVarInt(1));
                 }
             }
         }

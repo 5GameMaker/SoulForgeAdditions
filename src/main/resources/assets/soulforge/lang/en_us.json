@@ -38,13 +38,17 @@
 
     "ability.iceshock.summary": "Iceshock your target",
     "ability.snowglobe.summary": "Freeze the world around you",
+    "ability.slowball.summary": "Throw a snowball that freezes whoever it hits",
     "ability.frozen_grasp.summary": "A cold touch. May hurt a bit!",
+    "ability.ice_spike.summary": "Bring an icy poke out the ground",
     "ability.frost_wave.summary": "Conjure a Frost Wave in your hand. Right click to breeze",
     "ability.freeze_ring.summary": "Take it. Right click to Iceshock",
     "ability.angels_tempest.summary": "The horror and agony of freezing cold, double degrees",
     "ability.blinding_snowstorm.summary": "Winter's coming early! Shame you can't see it",
     "ability.skewer_weakpoint.summary": "Throw a popsicle. Better not stand under it!",
     "ability.weather_warning.summary": "Ruin the weather. The more you look, the worse it gets",
+    "ability.total_frostbite.summary": "Encase the foe in solitary containment",
+    "ability.proceed.summary": "You don't know this spell",
     "ability.snowgrave.summary": "You don't know this spell",
 
     "ability.platforms.summary": "Toggle platforms. Shift to place one",
@@ -81,6 +85,7 @@
     "ability.limit_break.summary": "The Undying",
     "ability.de_buff.summary": "Steal target's status effects. (Might hurt a bit in the process)",
     "ability.save_load.summary": "SAVE and LOAD target's location",
+    "ability.unchained_soul.summary": "Unleash the power of the soul",
     "ability.determination_shot.summary": "Release a blast of energy",
 
     "ability.lightning_rod.summary": "Get a trident. Cast again for a lightning strike",
@@ -97,5 +102,6 @@
     "ability.nanomachines.summary": "Slowly heal yourself over time",
     "ability.your_shield.summary": "Push yourself towards your companion. Reversed if shifting",
     "ability.warp_portal.summary": "Summon a temporary portal to the view direction",
+    "ability.shining_soul.summary": "Let your strength shine through",
     "ability.wormhole.summary": "Open a portal to another player"
 }

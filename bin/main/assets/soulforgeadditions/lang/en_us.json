@@ -1,0 +1,11 @@
+{
+    "modmenu.nameTranslation.soulforgeadditions": "SoulForge Additions",
+    "modmenu.summaryTranslation.soulforgeadditions": "Improvements and fixes for SoulForge",
+    "modmenu.descriptionTranslation.soulforgeadditions": "Improvements and fixes for SoulForge",
+
+    "text.autoconfig.soulforgeadditions.option.magicBarFade": "Fade magic bar when unused",
+    "text.autoconfig.soulforgeadditions.option.soulScreenPausesGame": "Soul screen pauses game",
+    "text.autoconfig.soulforgeadditions.option.scrollChangesRows": "Scrolling out of hotbar changes rows",
+    "text.autoconfig.soulforgeadditions.option.autoSwitchToWeaponSlot": "Automatically switch to weapon slot (currently singleplayer only)",
+    "text.autoconfig.soulforgeadditions.title": "SoulForge Additions config"
+}

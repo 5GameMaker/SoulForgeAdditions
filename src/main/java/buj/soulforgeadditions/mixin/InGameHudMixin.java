@@ -22,10 +22,14 @@ import java.util.Arrays;
 
 @Mixin(value = InGameHud.class, priority = 999)
 public abstract class InGameHudMixin {
-    @Shadow @Final private MinecraftClient client;
+    @Shadow
+    @Final
+    private MinecraftClient client;
 
-    @Shadow private int scaledWidth;
-    @Shadow private int scaledHeight;
+    @Shadow
+    private int scaledWidth;
+    @Shadow
+    private int scaledHeight;
 
     @Inject(method = "renderHotbar", at = @At("HEAD"))
     private void renderAbilityOverlay(float tickDelta, DrawContext context, CallbackInfo ci) {
@@ -35,7 +39,8 @@ public abstract class InGameHudMixin {
             int slot = playerSoul.getAbilitySlot();
             for (int i = 0; i < 9; i++) {
                 AbilityBase ability = row.abilities.get(i);
-                if (ability != null && playerSoul.getActiveAbilities().stream().anyMatch(x -> x.getID().equals(ability.getID()))) {
+                if (ability != null
+                        && playerSoul.getActiveAbilities().stream().anyMatch(x -> x.getID().equals(ability.getID()))) {
                     int f2011 = this.scaledWidth / 2;
 
                     int n = f2011 - 90 + i * 20 + 2 - 2;
@@ -55,7 +60,7 @@ public abstract class InGameHudMixin {
                     }
 
                     if (i - 1 == slot && playerSoul.magicModeActive()) {
-                        n += 1;
+                        n += 2;
                     }
 
                     Matrix4f matrix = context.getMatrices().peek().getPositionMatrix();

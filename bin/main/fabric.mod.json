@@ -1,0 +1,41 @@
+{
+    "schemaVersion": 1,
+    "id": "soulforgeadditions",
+    "version": "${version}",
+    "name": "SoulForgeAdditions",
+    "description": "Additional features and fixes for SoulForge",
+    "authors": [
+        "buj"
+    ],
+    "contact": {
+        "website": "https://github.com/5GameMaker/SoulForgeAdditions",
+        "repo": "https://github.com/5GameMaker/SoulForgeAdditions"
+    },
+    "license": "BSD-2-Clause-FreeBSD",
+    "icon": "assets/soulforgeadditions/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "buj.soulforgeadditions.SoulForgeAdditions"
+        ],
+        "modmenu": [
+            "buj.soulforgeadditions.SoulForgeAdditionsModMenu"
+        ]
+    },
+    "mixins": [
+        "soulforgeadditions.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric": "*",
+        "minecraft": "${minecraft_version}",
+        "soulforge": ">=${soulforge_version}",
+        "reach-entity-attributes": ">=${rea_version}",
+        "cardinal-components": ">=${cca_version}"
+    },
+    "suggests": {
+        "rei": ">=${rei_version}",
+        "modmenu": ">=${modmenu_version}",
+        "cloth-config": ">=${cloth_version}"
+    }
+}

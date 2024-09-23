@@ -5,7 +5,9 @@ import buj.soulforgeadditions.SoulForgeAdditions;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.pulsar.soulforge.SoulForge;
 import com.pulsar.soulforge.ability.AbilityBase;
+import com.pulsar.soulforge.ability.AuraAbilityBase;
 import com.pulsar.soulforge.ability.ToggleableAbilityBase;
+import com.pulsar.soulforge.ability.duals.ShiningSoul;
 import com.pulsar.soulforge.attribute.SoulForgeAttributes;
 import com.pulsar.soulforge.client.ui.MagicHudOverlay;
 import com.pulsar.soulforge.client.ui.SoulScreen;
@@ -127,7 +129,7 @@ public class MagicHudOverlayMixin {
         if (client.player.getAttributeInstance(SoulForgeAttributes.MAGIC_COST) != null)
             cost = (int) Math.ceil(cost * client.player.getAttributeValue(SoulForgeAttributes.MAGIC_COST));
         if (playerSoul.isStrong()) cost /= 2;
-        if (ability instanceof ToggleableAbilityBase) cost = 100;
+        if (ability instanceof AuraAbilityBase || ability instanceof ShiningSoul) cost = 100;
         int present = (int) playerSoul.getMagic();
         if (present <= 50) present--; // bleh
 

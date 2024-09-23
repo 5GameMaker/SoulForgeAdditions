@@ -1,17 +1,14 @@
 package buj.soulforgeadditions;
 
+import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Supplier;
 
 public class SoulForgeAdditionsMixinConfig implements IMixinConfigPlugin {
-    private final HashMap<String, Supplier<Boolean>> CONDITIONS = new HashMap<>();
-
     public SoulForgeAdditionsMixinConfig() {
     }
 
@@ -25,7 +22,10 @@ public class SoulForgeAdditionsMixinConfig implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return CONDITIONS.getOrDefault(mixinClassName, () -> true).get();
+        if (mixinClassName.equals("buj.soulforgeadditions.minix.SoulScreenBoxHotfixMixin"))
+            return FabricLoader.getInstance().getModContainer("soulforge").get().getMetadata().getVersion().getFriendlyString().equals("2.6.2");
+
+        return true;
     }
 
     @Override

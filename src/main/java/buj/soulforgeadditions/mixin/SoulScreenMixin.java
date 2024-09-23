@@ -8,6 +8,7 @@ import com.pulsar.soulforge.client.ui.SoulScreen;
 import com.pulsar.soulforge.components.SoulComponent;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.text.Texts;
@@ -27,6 +28,8 @@ public abstract class SoulScreenMixin extends Screen {
     @Shadow(remap = false) public int y;
     @Shadow(remap = false) public abstract void updateWidgets();
     @Shadow(remap = false) private AbilityBase selectedAbility;
+
+    @Shadow protected abstract void init();
 
     protected SoulScreenMixin(Text title) {
         super(title);
@@ -65,4 +68,12 @@ public abstract class SoulScreenMixin extends Screen {
     public boolean shouldPause() {
         return SoulForgeAdditions.getConfig().soulScreenPausesGame;
     }
+
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawBorder(IIIII)V", ordinal = 0))
+    void drawBorder(DrawContext instance, int x, int y, int width, int height, int color) {
+        instance.drawTexture(ClickableWidget.WIDGETS_TEXTURE, x - 3, y - 3, 0, 22, 24, 24);
+    }
+
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawBorder(IIIII)V", ordinal = 1))
+    void drawBorderDontNeed(DrawContext instance, int x, int y, int width, int height, int color) {}
 }

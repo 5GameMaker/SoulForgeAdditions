@@ -7,7 +7,7 @@ public class Config implements ConfigData {
     public boolean magicBarFade = true;
     public boolean soulScreenPausesGame = false;
     public boolean scrollChangesRows = true;
-    public boolean autoSwitchToWeaponSlot = true;
-    public boolean numbersChangeMagicBarSlot = true;
+    //public boolean autoSwitchToWeaponSlot = true;
+    //public boolean numbersChangeMagicBarSlot = true;
     public boolean displayManaCost = true;
 }

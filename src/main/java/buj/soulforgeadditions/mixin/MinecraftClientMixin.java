@@ -25,12 +25,12 @@ public class MinecraftClientMixin {
         Globals.PREVIOUS_SCREEN = currentScreen;
     }
 
-    @Redirect(method = "handleInputEvents", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerInventory;selectedSlot:I", opcode = Opcodes.PUTFIELD))
-    void setSelectedSlot(PlayerInventory inventory, int slot) {
-        SoulComponent component = SoulForge.getPlayerSoul(inventory.player);
-        if (component != null && component.magicModeActive() && SoulForgeAdditions.getConfig().numbersChangeMagicBarSlot) {
-            component.setAbilitySlot(slot);
-        }
-        else inventory.selectedSlot = slot;
-    }
+    //@Redirect(method = "handleInputEvents", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerInventory;selectedSlot:I", opcode = Opcodes.PUTFIELD))
+    //void setSelectedSlot(PlayerInventory inventory, int slot) {
+    //    SoulComponent component = SoulForge.getPlayerSoul(inventory.player);
+    //    if (component != null && component.magicModeActive() && SoulForgeAdditions.getConfig().numbersChangeMagicBarSlot) {
+    //        component.setAbilitySlot(slot);
+    //    }
+    //    else inventory.selectedSlot = slot;
+    //}
 }

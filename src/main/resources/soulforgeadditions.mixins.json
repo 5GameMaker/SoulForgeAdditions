@@ -11,6 +11,7 @@
     "MagicHudOverlayMixin",
     "MinecraftClientMixin",
     "PlayerInventoryMixin",
+    "SoulScreenBoxHotfixMixin",
     "SoulScreenMixin"
   ],
   "injectors": {

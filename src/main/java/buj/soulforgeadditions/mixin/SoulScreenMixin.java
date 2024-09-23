@@ -1,5 +1,6 @@
 package buj.soulforgeadditions.mixin;
 
+import buj.soulforgeadditions.Globals;
 import buj.soulforgeadditions.SoulForgeAdditions;
 import com.pulsar.soulforge.SoulForge;
 import com.pulsar.soulforge.ability.AbilityBase;
@@ -23,10 +24,9 @@ import java.util.List;
 @Mixin(SoulScreen.class)
 public abstract class SoulScreenMixin extends Screen {
     @Shadow(remap = false) public int x;
-
     @Shadow(remap = false) public int y;
-
     @Shadow(remap = false) public abstract void updateWidgets();
+    @Shadow(remap = false) private AbilityBase selectedAbility;
 
     protected SoulScreenMixin(Text title) {
         super(title);
@@ -34,6 +34,7 @@ public abstract class SoulScreenMixin extends Screen {
 
     @Redirect(method = "updateWidgets", at = @At(value = "INVOKE", target = "Lcom/pulsar/soulforge/ability/AbilityBase;getLocalizedText()Lnet/minecraft/text/Text;", shift = At.Shift.BY), require = 1)
     public Text overrideLocalizedText(AbilityBase instance) {
+        Globals.STORE_ABILITY = instance;
         return Texts.join(List.of(
                 instance.getLocalizedText(),
                 Text.translatable(
@@ -44,6 +45,8 @@ public abstract class SoulScreenMixin extends Screen {
 
     @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawTexture(Lnet/minecraft/util/Identifier;IIIIFFIIII)V", ordinal = 0, shift = At.Shift.AFTER))
     void renderDarkenedSlots(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        Globals.SELECTED_ABILITY = selectedAbility;
+
         assert client != null;
         SoulComponent soul = SoulForge.getPlayerSoul(client.player);
 

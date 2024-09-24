@@ -15,13 +15,13 @@ public class SoulForgeAdditions implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         if (FabricLoader.getInstance().isModLoaded("cloth-config")) {
-            AutoConfig.register(Config.class, GsonConfigSerializer::new);
+            AutoConfig.register(Config.ConfigModel.class, GsonConfigSerializer::new);
         }
     }
 
     public static Config getConfig() {
         if (FabricLoader.getInstance().isModLoaded("cloth-config")) {
-            return AutoConfig.getConfigHolder(Config.class).getConfig();
+            return Config.cloth();
         }
 
         if (CONFIG == null) CONFIG = new Config();

@@ -12,7 +12,7 @@ public class SoulForgeAdditionsModMenu implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         if (FabricLoader.getInstance().isModLoaded("cloth-config")) {
-            return parent -> AutoConfig.getConfigScreen(Config.class, parent).get();
+            return parent -> AutoConfig.getConfigScreen(Config.ConfigModel.class, parent).get();
         }
         else {
             return null;

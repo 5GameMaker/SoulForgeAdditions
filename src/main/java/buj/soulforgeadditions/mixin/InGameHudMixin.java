@@ -34,7 +34,7 @@ public abstract class InGameHudMixin {
     @Inject(method = "renderHotbar", at = @At("HEAD"))
     private void renderAbilityOverlay(float tickDelta, DrawContext context, CallbackInfo ci) {
         SoulComponent playerSoul = SoulForge.getPlayerSoul(client.player);
-        if (playerSoul != null) {
+        if (playerSoul != null && playerSoul.magicModeActive()) {
             AbilityLayout.AbilityRow row = playerSoul.getLayoutRow(playerSoul.getAbilityRow());
             int slot = playerSoul.getAbilitySlot();
             for (int i = 0; i < 9; i++) {
@@ -44,7 +44,7 @@ public abstract class InGameHudMixin {
                     int f2011 = this.scaledWidth / 2;
 
                     int n = f2011 - 90 + i * 20 + 2 - 2;
-                    int o = scaledHeight - 16 - 3 - 22 - 2;
+                    int o = scaledHeight - 16 - 3 - 2;
 
                     int[] colors = Arrays.stream(AbilitiesExt.getTraitsOf(ability))
                             .mapToInt(TraitBase::getColor)

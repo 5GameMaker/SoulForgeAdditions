@@ -103,5 +103,7 @@
     "ability.your_shield.summary": "Push yourself towards your companion. Reversed if shifting",
     "ability.warp_portal.summary": "Summon a temporary portal to the view direction",
     "ability.shining_soul.summary": "Let your strength shine through",
-    "ability.wormhole.summary": "Open a portal to another player"
+    "ability.wormhole.summary": "Open a portal to another player",
+
+    "ability.bad_to_the_bone.summary": "how was the fall?"
 }

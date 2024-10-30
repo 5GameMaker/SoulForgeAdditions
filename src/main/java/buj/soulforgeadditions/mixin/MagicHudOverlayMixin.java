@@ -12,7 +12,9 @@ import com.pulsar.soulforge.attribute.SoulForgeAttributes;
 import com.pulsar.soulforge.client.ui.MagicHudOverlay;
 import com.pulsar.soulforge.client.ui.SoulScreen;
 import com.pulsar.soulforge.components.SoulComponent;
+import com.pulsar.soulforge.config.ConfigHelper;
 import com.pulsar.soulforge.config.SoulForgeConfig;
+import com.pulsar.soulforge.config.SuperDuperHackToGetConfigValues;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -106,7 +108,7 @@ public class MagicHudOverlayMixin {
         double alpha = Math.sin((double) (System.currentTimeMillis() % 4000) / 2000f * Math.PI) / 2 + 0.6;
 
         int top;
-        int left = switch (SoulForgeConfig.MAGIC_BAR_LOCATION.getValue()) {
+        int left = switch (SuperDuperHackToGetConfigValues.getBarLocation(ConfigHelper.getConfig())) {
             case BOTTOM_RIGHT -> {
                 top = client.getWindow().getScaledHeight() - 136;
                 yield client.getWindow().getScaledWidth() - 27;

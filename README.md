@@ -17,3 +17,4 @@ SoulForge <-> SoulForge Additions versions:
 | 2.6.0     | 0.11                |
 | 2.6.1     | 0.12                |
 | 2.6.2     | 0.14                |
+| 2.6.5     | 0.15                |

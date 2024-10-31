@@ -6,20 +6,16 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.pulsar.soulforge.SoulForge;
 import com.pulsar.soulforge.ability.AbilityBase;
 import com.pulsar.soulforge.ability.AuraAbilityBase;
-import com.pulsar.soulforge.ability.ToggleableAbilityBase;
 import com.pulsar.soulforge.ability.duals.ShiningSoul;
 import com.pulsar.soulforge.attribute.SoulForgeAttributes;
 import com.pulsar.soulforge.client.ui.MagicHudOverlay;
 import com.pulsar.soulforge.client.ui.SoulScreen;
 import com.pulsar.soulforge.components.SoulComponent;
 import com.pulsar.soulforge.config.ConfigHelper;
-import com.pulsar.soulforge.config.SoulForgeConfig;
-import com.pulsar.soulforge.config.SuperDuperHackToGetConfigValues;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.util.Identifier;
-import org.lwjgl.system.MathUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,7 +23,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.awt.*;
-import java.lang.reflect.Field;
 
 import static org.lwjgl.opengl.GL20.*;
 

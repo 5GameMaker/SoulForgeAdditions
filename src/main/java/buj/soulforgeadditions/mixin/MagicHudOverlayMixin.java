@@ -108,7 +108,7 @@ public class MagicHudOverlayMixin {
         double alpha = Math.sin((double) (System.currentTimeMillis() % 4000) / 2000f * Math.PI) / 2 + 0.6;
 
         int top;
-        int left = switch (SuperDuperHackToGetConfigValues.getBarLocation(ConfigHelper.getConfig())) {
+        int left = switch (ConfigHelper.getMagicBarLocation()) {
             case BOTTOM_RIGHT -> {
                 top = client.getWindow().getScaledHeight() - 136;
                 yield client.getWindow().getScaledWidth() - 27;

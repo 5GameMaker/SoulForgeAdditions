@@ -1,8 +1,13 @@
 package buj.soulforgeadditions;
 
+import com.pulsar.soulforge.SoulForge;
 import com.pulsar.soulforge.ability.AbilityBase;
+import com.pulsar.soulforge.components.SoulComponent;
 import com.pulsar.soulforge.trait.TraitBase;
 import com.pulsar.soulforge.trait.Traits;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -114,8 +119,24 @@ public class AbilitiesExt {
      * if no trait could be resolved.
      */
     public static TraitBase[] getTraitsOf(AbilityBase ability) {
-        if (ability == null)
-            return new TraitBase[0];
+        ClientPlayerEntity entity = MinecraftClient.getInstance().player;
+        return getTraitsOf(entity, ability);
+    }
+    /**
+     * Get traits of an ability. Will return 0-length array if ability was null or
+     * if no trait could be resolved.
+     */
+    public static TraitBase[] getTraitsOf(PlayerEntity player, AbilityBase ability) {
+        if (player == null) return new TraitBase[0];
+        return getTraitsOf(SoulForge.getPlayerSoul(player), ability);
+    }
+    /**
+     * Get traits of an ability. Will return 0-length array if ability was null or
+     * if no trait could be resolved.
+     */
+    public static TraitBase[] getTraitsOf(SoulComponent soul, AbilityBase ability) {
+        // TODO: Base ability traits on whichever traits a soul has. (consider all for Spite).
+        if (ability == null) return new TraitBase[0];
 
         TraitBase[] traits = Traits
                 .all()

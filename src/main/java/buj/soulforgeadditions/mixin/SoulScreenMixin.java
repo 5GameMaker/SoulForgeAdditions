@@ -51,6 +51,7 @@ public abstract class SoulScreenMixin extends Screen {
         Globals.SELECTED_ABILITY = selectedAbility;
 
         assert client != null;
+        assert client.player != null;
         SoulComponent soul = SoulForge.getPlayerSoul(client.player);
 
         if (soul != null) {

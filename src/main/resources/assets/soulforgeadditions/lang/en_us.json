@@ -7,6 +7,7 @@
     "text.autoconfig.soulforgeadditions.option.soulScreenPausesGame": "Soul screen pauses game",
     "text.autoconfig.soulforgeadditions.option.scrollChangesRows": "Scrolling out of hotbar changes rows",
     "text.autoconfig.soulforgeadditions.option.autoSwitchToWeaponSlot": "Automatically switch to weapon slot (currently singleplayer only)",
+    "text.autoconfig.soulforgeadditions.option.autoRestoreWeapon": "Automatically restore weapon after death",
     "text.autoconfig.soulforgeadditions.option.numbersChangeMagicBarSlot": "Numbers change magic bar slot",
     "text.autoconfig.soulforgeadditions.option.displayManaCost": "Show the amount of mana taken by a spell",
     "text.autoconfig.soulforgeadditions.title": "SoulForge Additions config"

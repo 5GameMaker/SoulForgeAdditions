@@ -6,15 +6,23 @@
   "plugin": "buj.soulforgeadditions.SoulForgeAdditionsMixinConfig",
   "client": [
     "ClickableTextureWidgetMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ClientPlayNetworkingMixin",
     "EncyclopediaScreenMixin",
     "InGameHudMixin",
     "MagicHudOverlayMixin",
     "MinecraftClientMixin",
+    "MorphingWeaponryScreenMixin",
     "PlayerInventoryMixin",
+    "SoulComponentMixin",
     "SoulScreenBoxHotfixMixin",
-    "SoulScreenMixin"
+    "SoulScreenMixin",
+    "WeaponWheelScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "WeaponAbilityBaseMixin"
+  ]
 }
